@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/header :: header">
+
+</head>
+<body>
+        <div th:insert="fragments/menu :: meny"></div>
+        <main>
+
+            <div class="container">
+                <div th:replace="fragments/farmers :: farmers"></div>
+            </div>
+
+
+        </main>
+        <p th:text="${frms}"></p>
+        <div th:if="${ not#lists.isEmpty(farmers)}">
+         <table class="table">
+             <thead>
+                  <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Product</th>
+                      <th>Area of Cultivation</th>
+                      <th>Organization</th>
+
+
+                  </tr>
+
+
+
+
+
+             </thead>
+             <tbody>
+                <tr th:each="farmer : ${farmers}">
+                    <td th:text="${farmer.FirstName}"></td>
+                    <td th:text="${farmer.LastName}"></td>
+                    <td th:text="${farmer.Product}"></td>
+
+
+                </tr>
+
+             </tbody>
+
+
+
+
+
+
+
+         </table>
+        </div>
+        <div th:if="${lists.isEmpty(farmers)}">
+            Farmer Organization found!
+
+        </div>
+
+</body>
+</html>
